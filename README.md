@@ -34,3 +34,39 @@ for i, job_title in enumerate(job_titles):
 - SQL is the most universally required skill across all three roles – It appears in over half of job postings (51%) for Data Analysts and Data Scientists, and is also highly demanded (65%) for Data Engineers.
 - Data Analysts rely more on Excel and Tableau for data visualization and reporting – Excel (41%) and Tableau (28%) are commonly listed for Data Analysts, reinforcing the need for strong data visualization and reporting skills in this role.
 - Cloud and big data technologies are more important for Data Engineers – Skills like AWS (43%), Azure (32%), and Spark (32%) appear primarily in Data Engineer postings, highlighting the importance of cloud platforms and distributed computing in engineering roles.
+
+# The Analysis
+
+## 2. How are in-demand skills trending for Data Analysts?
+
+### Visualize Data
+
+```python
+from matplotlib.ticker import PercentFormatter
+ax = plt.gca()
+ax.yaxis.set_major_formatter(PercentFormatter(decimals=0))
+
+from adjustText import adjust_text
+
+texts = []
+for i in range(5):
+    y_pos = df_plot.iloc[-1, i]
+
+    # Move "Python" label down slightly
+    if df_plot.columns[i] == "python":
+        y_pos -= 2  # Adjust downward by 2 units (you can change this)
+
+    texts.append(plt.text(11.2, y_pos, df_plot.columns[i]))
+```
+
+### Results
+
+![Trending Top Skills for Data Analysts in the US](project/images/trending_skills.png)
+_Bar graph visualizing the trednding top skills for data analysts in the US 2023_
+
+### Insights:
+
+- SQL remains the most in-demand skill for data analysts in the US, consistently leading at above 50% throughout the year, though it shows a slight decline towards the end of the year.
+- Excel holds a strong second position with a steady demand of around 40-45%, but it drops significantly toward the last quarter before rebounding in December.
+- Tableau and Python are competing closely in the mid-tier range (~25-30%). Tableau sees a peak in August, whereas Python trends downward in the last quarter, possibly indicating a shift in preferred visualization or programming tools.
+- SAS has the lowest demand among the top 5 skills, remaining stable around the 20% mark with minor fluctuations.
