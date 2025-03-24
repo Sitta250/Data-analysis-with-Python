@@ -119,3 +119,25 @@ The highest-paid skills like dplyr, bitbucket, gitlab, solidity, and hugging fac
 Tools such as Excel, Word, and PowerPoint are among the most in-demand but are also associated with the lowest salaries. This suggests they are considered basic competencies for data analysts, rather than differentiating skills. 
 - Python Strikes the Balance Between Demand and Value
 Python stands out as the most in-demand skill while also offering competitive salaries, even if it doesn’t top the pay chart. Its versatility in data analysis, automation, and machine learning makes it a foundational tool across many roles. 
+# The Analysis
+
+## 5. What is the most optimal skill to learn for Data Analysts?
+```python
+sns.scatterplot(
+    data = df_plot,
+    x= 'skill_percent', 
+    y='median_salary',
+    hue='technology'
+)
+from matplotlib.ticker import PercentFormatter
+ax= plt.gca()
+ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda y, pos: f'${int(y/1000)}K'))
+ax.xaxis.set_major_formatter(PercentFormatter(decimals=0))
+plt.show()
+```
+![The most optimum job skills for Data Analyst in the US](project/images/optimalskill.png)*Scatter plot visualizing skills based on demand and pay*
+
+### Insights:
+- Python and SQL are top-tier skills: Python stands out with the highest median salary (~$98K) and solid demand, while SQL appears in the majority of data analyst job postings (58%) and still offers a competitive median salary ($92K). These two programming skills are essential for both compensation and job availability.
+- High salary ≠ high demand: Tools like Oracle and Go offer high salaries (~$96K–$97K) but appear in fewer job postings. This indicates that while these skills are less commonly required, they are highly valued where needed—possibly in specialized roles or companies with legacy systems.
+- Widely required tools can be lower-paid: Skills like Excel, Word, and PowerPoint show up in many job listings (up to 40%) but correspond to lower median salaries (~$82K–$86K). These tools are considered baseline expectations, suggesting they are important but not differentiators in salary negotiations.
